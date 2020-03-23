@@ -1,104 +1,99 @@
-<!DOCTYPE HTML>  
-<html>
-<head>
-<style>
-.error {color: #FF0000;}
-</style>
-</head>
-<body>  
+v<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<?php
-// define variables and set to empty values
-$nameErr = $emailErr = $genderErr = $websiteErr = "";
-$name = $email = $gender = $comment = $website = "";
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["name"])) {
-    $nameErr = "Name is required";
-  } else {
-    $name = test_input($_POST["name"]);
-    // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
-      $nameErr = "Only letters and white space allowed";
-    }
-  }
-  
-  if (empty($_POST["email"])) {
-    $emailErr = "Email is required";
-  } else {
-    $email = test_input($_POST["email"]);
-    // check if e-mail address is well-formed
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $emailErr = "Invalid email format";
-    }
-  }
+    <title>Hello, world!</title>
+    <style>
+      
+      body{
+        background:#000;
+      }
+
+     .container-fliud{
+      box-shadow: 7px 7px 7px #000;
+      position:relative;
+      top:80px;
+      background: #000;
+      
+
+     }
+     .container{
+         box-shadow: 7px 7px 7px white;
+         position:relative;
+         top:50px;
+         background:white;
+
+     }
+     .text-center{
+      background: grey;
+      box-shadow: 2px 2px 2px grey;
+
+     }
+    </style>
+  </head>
+  <body>
     
-  if (empty($_POST["website"])) {
-    $website = "";
-  } else {
-    $website = test_input($_POST["website"]);
-    // check if URL address syntax is valid (this regular expression also allows dashes in the URL)
-    if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
-      $websiteErr = "Invalid URL";
-    }
-  }
+   <div class="container-fliud ">
 
-  if (empty($_POST["comment"])) {
-    $comment = "";
-  } else {
-    $comment = test_input($_POST["comment"]);
-  }
+     <div class="container  text-center">
 
-  if (empty($_POST["gender"])) {
-    $genderErr = "Gender is required";
-  } else {
-    $gender = test_input($_POST["gender"]);
-  }
-}
+      <h1 style="color:#000;">helloo world</h1>
+        
+        <div class="colm">
+          <div class="col text-center">
+            <h1 class="name"></h1>
+          <p>Congratlations CongratlationsCongratlationsCongra<br>tlationsCongratlationsCongratlationsCongratlations<br>CongratlationsCongratlationsCongratlation<br>sCongratlationsCongratlationsCongratlationsCon<br>gratlationsCongratlationsCongratlationsCon<br>gratlationsCongratlationsCongratlationsCongratla<br>tionsCongratlationsCongratlationsCongratlation<br>sCongratlationsCongratlationsCongratlation<br>sCongratlationsCongratlationsCongratlationsCong<br>ratlationsCongratlationsCongratlationsCongratlationsCongratlations</p>
+           <br>
+           <br>
+           <br>
+            <form>
+          <label>Name</label>
+          <input type="text" name="name"><br>
+          <br>
+          <input type="submit"><br>
+          <br>
+        </form>
+        <a class="mywtsp" href="whatsapp://send?text=🤗 fine has sent you Super Dare Friendship Quiz 👸🤴. %0ATake this Challenge NOW %0A🤯👇👇👇👇🤯%0A https://wishenger.com/en/quiz/ff23b8" data-action="share/whatsapp/share" style="height: 43px; border-radius: 7px;">
+<img align="left" width="25px" height="25px" src="https://bucketforawsend.s3.amazonaws.com/qwa/en1/assets/images/logow.png" /><b style="font-size: 12px;"> SHARE</b></a>
+<a class="mymsgr" href="fb-messenger://share?link=🤗 fine has sent you Super Dare Friendship Quiz 👸🤴. %0ATake this Challenge NOW %0A🤯👇👇👇👇🤯%0A https://wishenger.com/en/quiz/ff23b8" data-action="share/whatsapp/share" style="height: 43px; border-radius: 7px;">
+<img align="left" width="25px" height="25px" src="https://bucketforawsend.s3.amazonaws.com/qwa/en1/assets/images/logom.png" /><b style="font-size: 12px;"> SHARE</b></a>
+            <h1 style="color:red; text-align:center;">helloo world</h1>
+     <h1 style=" color:red; text-align:center;">helloo world</h1>
+        </div>
+      
+      </div>
+   
+     </div>
+    <h1 style="color:black; text-align:center;">helloo world</h1>
+     <h1 style=" color:black; text-align:center;">helloo world</h1>
+   </div>
+   
 
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-?>
 
-<h2>PHP Form Validation Example</h2>
-<p><span class="error">* required field</span></p>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
-  Name: <input type="text" name="name" value="<?php echo $name;?>">
-  <span class="error">* <?php echo $nameErr;?></span>
-  <br><br>
-  E-mail: <input type="text" name="email" value="<?php echo $email;?>">
-  <span class="error">* <?php echo $emailErr;?></span>
-  <br><br>
-  Website: <input type="text" name="website" value="<?php echo $website;?>">
-  <span class="error"><?php echo $websiteErr;?></span>
-  <br><br>
-  Comment: <textarea name="comment" rows="5" cols="40"><?php echo $comment;?></textarea>
-  <br><br>
-  Gender:
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="female">Female
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="male">Male
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="other") echo "checked";?> value="other">Other  
-  <span class="error">* <?php echo $genderErr;?></span>
-  <br><br>
-  <input type="submit" name="submit" value="Submit">  
-</form>
 
-<?php
-echo "<h2>Your Input:</h2>";
-echo $name;
-echo "<br>";
-echo $email;
-echo "<br>";
-echo $website;
-echo "<br>";
-echo $comment;
-echo "<br>";
-echo $gender;
-?>
 
-</body>
+
+<a class="mywtsp" href="whatsapp://send?text=🤗 fine has sent you Super Dare Friendship Quiz 👸🤴. %0ATake this Challenge NOW %0A🤯👇👇👇👇🤯%0A https://wishenger.com/en/quiz/ff23b8" data-action="share/whatsapp/share" style="height: 43px; border-radius: 7px;">
+<img align="left" width="25px" height="25px" src="https://bucketforawsend.s3.amazonaws.com/qwa/en1/assets/images/logow.png" /><b style="font-size: 12px;"> SHARE</b></a>
+<a class="mymsgr" href="fb-messenger://share?link=🤗 fine has sent you Super Dare Friendship Quiz 👸🤴. %0ATake this Challenge NOW %0A🤯👇👇👇👇🤯%0A https://wishenger.com/en/quiz/ff23b8" data-action="share/whatsapp/share" style="height: 43px; border-radius: 7px;">
+<img align="left" width="25px" height="25px" src="https://bucketforawsend.s3.amazonaws.com/qwa/en1/assets/images/logom.png" /><b style="font-size: 12px;"> SHARE</b></a>
+
+
+
+
+
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
 </html>
